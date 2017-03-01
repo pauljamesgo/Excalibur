@@ -1,36 +1,46 @@
-<!doctype html>
-<html class="no-js" lang="en" dir="ltr">
-
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Foundation for Sites</title>    
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Sample FirebaseUI App</title>
     <script src="https://www.gstatic.com/firebasejs/3.6.10/firebase.js"></script>
-    <link rel="stylesheet" href="css/foundation.css">
-    <link rel="stylesheet" href="css/app.css">
-</head>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyD3bRPRj4XiYymL2tVJWYIfu5GM8qx7XUk",
+        authDomain: "excalibur-b66bd.firebaseapp.com",
+        databaseURL: "https://excalibur-b66bd.firebaseio.com",
+        storageBucket: "excalibur-b66bd.appspot.com",
+        messagingSenderId: "750347650987"
+      };
+      firebase.initializeApp(config);
+    </script>
+    <script src="https://cdn.firebase.com/libs/firebaseui/1.0.0/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/1.0.0/firebaseui.css" />
+    <script type="text/javascript">
+      // FirebaseUI config.
+      var uiConfig = {
+        signInSuccessUrl: '<url-to-redirect-to-on-success>',
+        signInOptions: [
+          // Leave the lines as is for the providers you want to offer your users.
+          firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+          firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+          firebase.auth.EmailAuthProvider.PROVIDER_ID
+        ],
+        // Terms of service url.
+        tosUrl: '<your-tos-url>'
+      };
 
-<body>
-    <div class="row">
-        <div class="medium-6 medium-centered large-4 large-centered columns">
-            <form>
-                <div class="row column log-in-form">
-                    <h4 class="text-center">Log in with you email account</h4>
-                    <label>Email<input id="txtEmail" type="email" placeholder="somebody@example.com"></label>
-                    <label>Password<input id="txtPassword" type="password" placeholder="Password"></label>                    
-                    <a type="submit" id="btnLogin" class="button left ">Log In</a>
-                    <a type="submit" id="btnSignup" class="button secondary left">Sign Up</a>
-                    <a type="submit" id="btnLogout" class="button alert left  hide">Log Out</a>
-                    <p class="text-center"><a href="#">Forgot your password?</a></p>
-                </div>
-            </form>
-        </div>
-    </div>    
-    <script src="js/vendor/jquery.js"></script>
-    <script src="js/vendor/what-input.js"></script>
-    <script src="js/vendor/foundation.js"></script>
-    <script src="js/app.js"></script>
-</body>
-
+      // Initialize the FirebaseUI Widget using Firebase.
+      var ui = new firebaseui.auth.AuthUI(firebase.auth());
+      // The start method will wait until the DOM is loaded.
+      ui.start('#firebaseui-auth-container', uiConfig);
+    </script>
+  </head>
+  <body>
+    <!-- The surrounding HTML is left untouched by FirebaseUI.
+         Your app may use that space for branding, controls and other customizations.-->
+    <h1>Welcome to My Awesome App</h1>
+    <div id="firebaseui-auth-container"></div>
+  </body>
 </html>
