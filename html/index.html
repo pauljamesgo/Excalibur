@@ -1,0 +1,36 @@
+<!doctype html>
+<html class="no-js" lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foundation for Sites</title>
+    <script src="https://www.gstatic.com/firebasejs/3.6.10/firebase.js"></script>
+    <link rel="stylesheet" href="css/foundation.css">
+    <link rel="stylesheet" href="css/app.css">
+</head>
+
+<body>
+    <div class="row">
+        <div class="medium-6 medium-centered large-4 large-centered columns">
+            <form>
+                <div class="row column log-in-form">
+                    <h4 class="text-center">Log in with you email account</h4>
+                    <label>Email<input id="txtEmail" type="email" placeholder="somebody@example.com"></label>
+                    <label>Password<input id="txtPassword" type="password" placeholder="Password"></label>                    
+                    <a type="submit" id="btnLogin" class="button left ">Log In</a>
+                    <a type="submit" id="btnSignup" class="button secondary left">Sign Up</a>
+                    <a type="submit" id="btnLogout" class="button alert left  hide">Log Out</a>
+                    <p class="text-center"><a href="#">Forgot your password?</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/vendor/what-input.js"></script>
+    <script src="js/vendor/foundation.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>
